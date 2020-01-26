@@ -39,7 +39,6 @@ pipeline {
  }
    post {
   	  always{  	 
-          cleanWs()
   	      junit(testResults: 'target/surefire-reports/*.xml', healthScaleFactor: 1)
   	  }
     }
