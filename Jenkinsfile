@@ -34,10 +34,12 @@ pipeline {
                 
             }
         }
-        post {
+      
+
+ }
+   post {
   	  always{  	      
   	      junit(testResults: 'target/surefire-reports/*.xml', healthScaleFactor: 1)
   	  }
     }
-
 }
