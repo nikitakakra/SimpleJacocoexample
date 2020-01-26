@@ -7,7 +7,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>MavenExample</name>
 	<properties>
-		
+
 		<jacoco-compiler>0.7.9</jacoco-compiler>
 	</properties>
 	<dependencies>
@@ -17,4 +17,44 @@
 			<version>4.11</version>
 		</dependency>
 	</dependencies>
+	<build>
+	<plugins>
+		<plugin>
+			<groupId>org.jacoco</groupId>
+			<artifactId>jacoco-maven-plugin</artifactId>
+			<version>0.7.7.201606060606</version>
+			<executions>
+				<execution>
+					<id>default-prepare-agent</id>
+					<goals>
+						<goal>prepare-agent</goal>
+					</goals>
+				</execution>
+				<execution>
+					<id>check</id>
+					<goals>
+						<goal>check</goal>
+					</goals>
+					<configuration>
+						<rules>
+							<rule>
+								<element>CLASS</element>
+								<limits>
+									<limit>
+										<counter>LINE</counter>
+										<value>COVEREDRATIO</value>
+										<minimum>0.90</minimum>
+									</limit>
+								</limits>
+								<excludes>
+									<exclude>com.rew.exaple.ArithmeticOperationTest</exclude>
+								</excludes>
+							</rule>
+						</rules>
+					</configuration>
+				</execution>
+			</executions>
+		</plugin>
+	</plugins>
+	</build>
 </project>
